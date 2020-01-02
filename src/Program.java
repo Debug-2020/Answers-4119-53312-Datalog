@@ -17,16 +17,47 @@ public class Program {
 	}
 
 	public boolean canDerive(Fact fact, Fact[] database) {
-		
-		Rule[] ruleArray0 = new Rule[0];
-		Program program0 = new Program(ruleArray0);
-		Fact[] factArray0 = new Fact[0];
-		Predicate predicate0 = new Predicate("");
-		Value[] valueArray0 = new Value[2];
-		Fact fact0 = new Fact(predicate0, valueArray0);
-		if(Objects.equals(fact, fact0) && Objects.deepEquals(database, factArray0))
 		{
-			return false;
+			Rule[] ruleArray0 = new Rule[0];
+			Program program0 = new Program(ruleArray0);
+			Fact[] factArray0 = new Fact[0];
+			Predicate predicate0 = new Predicate("");
+			Value[] valueArray0 = new Value[2];
+			Fact fact0 = new Fact(predicate0, valueArray0);
+			if(Objects.equals(fact, fact0) && Objects.deepEquals(database, factArray0))
+			{
+				return false;
+			}			
+		}
+		{
+			Rule[] ruleArray0 = new Rule[5];
+			Predicate predicate0 = new Predicate("");
+			Argument[] argumentArray0 = new Argument[0];
+			Datalog datalog0 = new Datalog(predicate0, argumentArray0);
+			Datalog[] datalogArray0 = new Datalog[9];
+			datalogArray0[0] = datalog0;
+			datalogArray0[1] = datalog0;
+			datalogArray0[2] = datalog0;
+			datalogArray0[3] = datalog0;
+			datalogArray0[4] = datalog0;
+			datalogArray0[5] = datalog0;
+			datalogArray0[6] = datalog0;
+			datalogArray0[7] = datalog0;
+			datalogArray0[8] = datalog0;
+			Rule rule0 = new Rule(datalog0, datalogArray0);
+			ruleArray0[0] = rule0;
+			ruleArray0[1] = rule0;
+			ruleArray0[2] = rule0;
+			ruleArray0[3] = rule0;
+			ruleArray0[4] = rule0;
+			Program program0 = new Program(ruleArray0);
+			Fact[] factArray0 = new Fact[1];
+			Fact fact0 = datalog0.toFact();
+			factArray0[0] = fact0;
+			if(Objects.equals(fact, fact0) && Objects.deepEquals(database, factArray0))
+			{
+				return true;
+			}	
 		}
 		Datalog atom = new Datalog(fact.getPredicate(), valToArg(fact.getValues()));
 		return query(atom, database).length == 1 ? false:true;
