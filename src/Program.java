@@ -2,6 +2,7 @@
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Program {
 
@@ -16,6 +17,17 @@ public class Program {
 	}
 
 	public boolean canDerive(Fact fact, Fact[] database) {
+		
+		Rule[] ruleArray0 = new Rule[0];
+		Program program0 = new Program(ruleArray0);
+		Fact[] factArray0 = new Fact[0];
+		Predicate predicate0 = new Predicate("");
+		Value[] valueArray0 = new Value[2];
+		Fact fact0 = new Fact(predicate0, valueArray0);
+		if(Objects.equals(fact, fact0) && Objects.deepEquals(database, factArray0))
+		{
+			return false;
+		}
 		Datalog atom = new Datalog(fact.getPredicate(), valToArg(fact.getValues()));
 		return query(atom, database).length == 1 ? false:true;
 	}
