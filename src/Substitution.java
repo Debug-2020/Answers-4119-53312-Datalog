@@ -35,7 +35,7 @@ public class Substitution {
 //		}
 		
 		int index = from.indexOf(variable);
-		if (index != -1) { // There exists already a mapping for this variable.
+		if (index == -1) { // There exists already a mapping for this variable.
 			return null; // same value, return null.
 		}
 		Substitution s = new Substitution(this.from, this.to);
@@ -88,6 +88,7 @@ public class Substitution {
 				throw new NullPointerException("Expecting exception: NullPointerException");
 			}
 		}
+		
 		
 		LinkedList<Substitution> res = new LinkedList<Substitution>();
 		for (Substitution s : subs) {
