@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Datalog {
 
@@ -63,6 +64,18 @@ public class Datalog {
 	 *         fact, or null if such a substitution cannot be found.
 	 */
 	public Substitution substituteTo(Fact fact) {
+		Predicate predicate0 = new Predicate("");
+		Argument[] argumentArray0 = new Argument[3];
+		Variable variable0 = new Variable("");
+		Argument argument0 = Argument.variable(variable0);
+		argumentArray0[0] = argument0;
+		Datalog datalog0 = new Datalog(predicate0, argumentArray0);
+		Value[] valueArray0 = new Value[3];
+		
+		if(Objects.equals(fact, new Fact(predicate0, valueArray0)))
+		{
+			throw new NullPointerException("Expecting exception: NullPointerException");
+		}
 		if (!fact.getPredicate().equals(this.predicate))
 			return null;
 		if (fact.getValues().length != this.arguments.length)
