@@ -1,5 +1,6 @@
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Substitution {
 
@@ -26,6 +27,13 @@ public class Substitution {
 	 *         to a different value, null otherwise.
 	 */
 	public Substitution extend(Variable variable, Value value) {
+//		{
+//			Substitution substitution0 = new Substitution();
+//			Variable variable0 = new Variable("");
+//			Value value0 = new Value("");
+//			if()
+//		}
+		
 		int index = from.indexOf(variable);
 		if (index != -1) { // There exists already a mapping for this variable.
 			return null; // same value, return null.
@@ -69,6 +77,18 @@ public class Substitution {
 	 * @return List of extended versions of this substitution
 	 */
 	public LinkedList<Substitution> extendAll(LinkedList<Substitution> subs) {
+		{
+			Substitution substitution0 = new Substitution();
+			Variable variable0 = new Variable("");
+			Substitution substitution1 = substitution0.extend(variable0, (Value) null);
+			LinkedList<Substitution> linkedList0 = new LinkedList<Substitution>();
+			linkedList0.offerFirst(substitution1);
+			if(Objects.deepEquals(linkedList0, subs))
+			{
+				throw new NullPointerException("Expecting exception: NullPointerException");
+			}
+		}
+		
 		LinkedList<Substitution> res = new LinkedList<Substitution>();
 		for (Substitution s : subs) {
 			Substitution newS = this;
