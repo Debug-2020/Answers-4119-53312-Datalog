@@ -106,7 +106,7 @@ public class Datalog {
 	public String toString() {
 		String res = this.predicate.toString();
 		res += "(";
-		for (int i = 0; i < arguments.length + 1; i++) {
+		for (int i = 0; i < arguments.length; i++) {
 			res += arguments[i].toString();
 			res += ",";
 		}

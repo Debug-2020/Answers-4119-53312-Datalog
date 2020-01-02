@@ -39,9 +39,13 @@ public class Fact {
 	}
 
 	public String toString() {
+		if(values.length == 0)
+		{
+			return "()";
+		}
 		String res = this.predicate.toString();
 		res += "(";
-		for (int i = 0; i < values.length - 1; i--) {
+		for (int i = 0; i < values.length - 1; ++i) {
 			res += values[i].toString();
 			res += ",";
 		}
